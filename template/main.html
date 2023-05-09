@@ -1,0 +1,140 @@
+{%extends 'base.html'%}
+
+{%block pagecontent%}
+    <style>
+        body{
+            background-color:#1a1a1a;
+            width: 100%;
+        }
+        .my_cont{
+             margin-top: 20px;
+             margin-left: 300px;
+             width: 70%;
+        }
+        .img-box{
+           width: 100%;
+        }
+        .react_bar{
+            width: 230px; height: 50px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+        .react_value{
+            width: 230px; height: 50px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            margin-top: -25px;
+            margin-left: 5px;
+        }
+        button{
+            background: none;
+            margin: 0; padding: 0;
+            padding-right: 17px;
+            width: 1px; color: white;
+        }
+        
+
+    @media only screen and (max-width: 600px) {     
+        .img-box img{
+            width: 280px;
+            margin: auto;
+        }
+
+        .my_cont{
+            margin-left: 0;
+            margin: auto;
+        }
+        .p_cont{
+            width: 240px;
+        }
+           
+     }
+     /* @media only screen and (max-width:1024px){
+            .my_cont{
+                margin-left: 0;
+                margin: auto;
+            }
+            .p_cont{
+                width: 300px;
+            }
+            .img-box img{
+            width: 400px;
+            margin: auto;
+        }
+     } */
+    @media only screen and (max-width: 321px) {     
+        .img-box img{
+            width: 200px;
+            margin: auto;
+        }
+
+        .my_cont{
+            margin-left: 0;
+        }
+       
+    
+      
+     
+      
+     }
+
+    </style>
+</head>
+<body>
+    {%if user.is_authenticated%}
+    {% for x in content %}
+    <div class="container-fluid my_cont">
+
+        <div class="row">
+            <div class="col">
+
+                <p class="p_cont" style="color: white;">{{x.content}}</p>
+
+            </div> 
+            <div class="col-8  img-box">
+                <img src="/media/{{x.image}}" height="500" width="500" alt="">
+                <p style="color: white;">{{x.author}}</p>
+
+                <div class="react_bar">
+                    <span> <button style="border: transparent;"  id="love" class="fas fa-heart"></button> like</span>
+                    <span> <button style="border: transparent;" class="fas fa-comments"></button> comment</span>
+                    <span> <button style="border: transparent;" class="fas fa-share"></button> share</span>
+                    
+                </div>
+                <div class="react_value">
+                    <strong id="react_val"> 0</strong>
+                    <strong> 200</strong>
+                    <strong> 200</strong>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    {%endfor%}
+    {%endif%}
+
+     <script>
+        var love = document.querySelector("#love")
+        var react_val=document.querySelector('#react_val')
+        var count=0;
+        love.addEventListener('dblclick',() => {
+            love.style.color="red"
+            count++;
+            react_val.innerHTML=count;
+            localStorage.setItem('react', 'added')
+        });
+        love.addEventListener('click',() => {
+            love.style.color="white"
+            localStorage.setItem('react', 'removal')
+
+        })
+        if (localStorage.getItem("react") === "added"){
+            love.style.color="red"
+            count++;
+            react_val.innerHTML=count;
+        }
+     </script>
+{%endblock%}

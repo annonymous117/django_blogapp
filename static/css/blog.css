@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color:black;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 30px;
+  }
+   
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    margin-top: 50px;
+  }
+  /* .body{
+    background: url(../image/w3images/notebook.jpg) center no-repeat;
+    background-size: cover;
+  } */
+  .page{
+    margin-left: 360px;
+    margin-top: 200px;
+  }
+
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .my_header{
+    margin-left: 0; /* Same as the width of the sidebar */
+    background-color: black;
+    height: 160px; width: 100%;
+    padding-top: 20px; 
+  }
+  .head_img{
+    margin-left: 260px;
+    display: flex;
+    color: orangered;
+  }
+  .start_btn{
+    margin-left: 250px;
+    border: none;
+    height: 50px;
+    width: 120px;
+    background-color: orangered;
+    color: white;
+  }
+  .logo{
+    border-radius: 50%;
+  }
+  .desc{
+    color: white;
+    font-size: 12px;
+    float: right;
+    margin-right: 20px;
+  }
+  .Btn{
+    background-color: black;
+    border: solid 1px white;
+    width: 100px;
+    color: white;
+    height: 40px;
+   }
+   .Btn:hover{
+    background-color: white;
+    color: black;
+   }
+   .post_btns{
+   width: 160px;
+   height: 60px;
+   text-align: center;
+   padding: 0;
+   background-color: orangered;
+   color: white;
+   }
+
+
+   
+
+   
+   
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  @media only screen and (max-width: 600px) {
+    body{
+      width: 100%;
+    }
+    .page{
+      margin-left: 20px;
+    }
+    /* .sidenav {
+      display: none;
+    } */
+    .my_header{
+      margin-left: 0;
+    }
+    .head_img{
+      margin-left: 0;
+      width: 100px; height: 50px;
+      margin-top: 30px;
+    }
+    .head_img h1{
+      font-size: 30px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidenav a {float: left;
+      margin: 0;
+      width: 100%;
+      font-size: xx-small;
+      padding: 20px;
+      height:50%;
+      background-color: rgb(238, 156, 126);
+    }
+    .page{
+      margin-left: 20px;
+    }
+    .head_img{
+      margin-left: 0;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidenav a {
+      text-align: center;
+      float: none;
+    }
+    .page{
+      margin-left: 5px;
+    }
+    .start_btn{
+      margin-left: 5px;
+    }
+  }
+  /* @media only screen and (max-width: 1024px) {
+    .sidenav{
+      display: none;
+    }
+    .my_header{
+      margin-left: 0;
+    }
+    .head_img{
+      margin-left: 0;
+      width: 100px; height: 50px;
+      margin-top: 30px;
+    }
+    .head_img h1{
+      font-size: 30px;
+    }
+  } */
+

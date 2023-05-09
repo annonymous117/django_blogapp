@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block pagecontent %}
+<style>
+  form{
+    text-align: center;
+   }
+   label{
+    font-size: 25px;
+    color: orangered;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+   input{
+    background: transparent;
+    border: solid 1px black;
+   }
+   .log_btn{
+    background-color: black;
+    border: solid 1px white;
+    width: 100px;
+    margin-left: 100px;
+    color: white;
+    height: 40px;
+   }
+   .log_btn:hover{
+    background-color: white;
+    color: black;
+   }
+   .form_cont{
+    width: 800px; height: 230px;
+    margin: auto; margin-top: 100px;
+    background-color: white;
+   }
+   .form_cont h2{
+    text-align: center;
+    background-color: black;
+    color: white;
+   }
+
+
+
+   @media screen and (max-width: 799px){
+     .form_cont{
+      width: 200px; margin:auto;
+      margin-top: 20px;
+
+     }
+     .log_btn{
+      margin: auto;
+      margin-top: 5px;
+     }
+   }
+</style>
+<div class="form_cont">
+  <h2>Login</h2>
+  {% if error_message %}
+  <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button class="log_btn" type="submit" value="login">login</button>
+  </form>
+</div>
+{% endblock %}

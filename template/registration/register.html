@@ -1,0 +1,74 @@
+{%extends "base.html"%}
+{%block pagecontent%}
+ <style>
+   
+    .userform{
+        padding: 15px; border: double 2px rgb(182, 143, 143);
+        margin: 12px;
+        width: 600px;
+        display: block;
+        border-radius: 15px;
+
+    }
+    .userform input{
+        width: 500px;
+        text-align: center;
+    }
+    label{
+        font-size: 20px;
+        font-family: cursive;
+        color: coral;
+        display: inline-block;
+        width: 90%;
+        text-align: center;
+
+
+    }
+    .userinput{
+        background-color: black;
+        text-align: center;
+        border: white 1px double;
+        padding: 5px;
+        margin: 25px;
+        width: 90%;
+        border-radius: 20px;
+        color: white;
+    }
+    .cont{
+    background: lightgrey;
+    width: fit-content;
+    margin: auto;
+       
+    }
+   form{
+    background-color: black;
+   }
+
+   @media screen and (max-width: 996px){
+        .cont form{
+            width: 400px;
+            margin-left:0;
+            color: white;
+        }
+        
+        .userinput{
+            margin-left: 0;
+            width: 20px;
+        }
+        .userform input{
+            width: 150px;
+            margin-left:100px;
+        }
+   }
+</style>
+
+<div class="cont">
+    <form action="" method="POST" class="userform">
+
+        {% csrf_token %} 
+        
+        {{form.as_table}}
+        <input class="userinput" type="submit" value="submit form">
+    </form>
+</div>
+{%endblock%}
